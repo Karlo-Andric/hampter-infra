@@ -1,0 +1,47 @@
+{
+  "containerDefinitions": [
+    {
+      "name": "thr-backend-dev",
+      "image": "414901227846.dkr.ecr.eu-central-1.amazonaws.com/thr-ecr-dev/backend:15",
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "dev/ecs/thr-backend",
+          "awslogs-region": "eu-central-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "cpu": 256,
+      "memory": 1024,
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "hostPort": 3000,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "environment": [],
+      "secrets": [],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "systemControls": []
+    }
+  ],
+  "family": "backend-fargate",
+  "executionRoleArn": "arn:aws:iam::414901227846:role/ecsTaskExecutionRole",
+  "networkMode": "awsvpc",
+  "volumes": [],
+  "placementConstraints": [],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "256",
+  "memory": "1024",
+  "tags": [
+    {
+      "key": "Environment",
+      "value": "development"
+    }
+  ]
+}
